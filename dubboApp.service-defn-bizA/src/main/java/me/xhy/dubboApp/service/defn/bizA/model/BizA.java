@@ -1,7 +1,14 @@
 package me.xhy.dubboApp.service.defn.bizA.model;
 
-public class BizA {
+import java.io.Serializable;
+
+public class BizA implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6673634524658039230L;
+
 	// field
 	private String a;
 	

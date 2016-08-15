@@ -24,7 +24,7 @@
 	<!-- <context:property-placeholder location="zookeeper.properties" /> -->
 	
 	<!-- <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" timeout="${dubbo.registry.timeout}" /> -->
-	<dubbo:registry protocol="zookeeper" address="192.168.11.130:12181,192.168.11.130:22181,192.168.11.130:32181" timeout="1000" />
+	<dubbo:registry protocol="zookeeper" address="127.0.0.1:12181,127.0.0.1:22181,127.0.0.1:32181" timeout="1000" />
 	
 	<!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />

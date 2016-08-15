@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import me.xhy.dubboApp.service.defn.bizA.model.BizA;
-import me.xhy.dubboApp.web.communication.service.CommunicationService;
+import me.xhy.dubboApp.web.communication.service.CommunicationServiceImpl;
 
 @Controller
 @Component
@@ -22,7 +22,7 @@ public class CommunicationController {
 	private BizA bizA;
 	
 	@Autowired
-	private CommunicationService communicationService;
+	private CommunicationServiceImpl communicationService;
 
 	@RequestMapping(value="/{a}.{b}", method=RequestMethod.GET)
 	@ResponseBody
@@ -41,11 +41,11 @@ public class CommunicationController {
 	}
 
 	// properties
-	public CommunicationService getCommunicationService() {
+	public CommunicationServiceImpl getCommunicationService() {
 		return communicationService;
 	}
 
-	public void setCommunicationService(CommunicationService communicationService) {
+	public void setCommunicationService(CommunicationServiceImpl communicationService) {
 		this.communicationService = communicationService;
 	}
 
