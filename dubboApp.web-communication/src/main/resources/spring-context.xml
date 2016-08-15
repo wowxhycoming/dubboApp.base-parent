@@ -21,10 +21,9 @@
 
 	<dubbo:application name="dubboApp.web-communication" />
 	
-	<!-- <context:property-placeholder location="zookeeper.properties" /> -->
+	<context:property-placeholder location="classpath:/zookeeper.properties" />
 	
-	<!-- <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" timeout="${dubbo.registry.timeout}" /> -->
-	<dubbo:registry protocol="zookeeper" address="127.0.0.1:12181,127.0.0.1:22181,127.0.0.1:32181" timeout="1000" />
+	<dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" timeout="${dubbo.registry.timeout}" />
 	
 	<!-- <dubbo:annotation package="me.xhy" />
 	
