@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>me.xhy</groupId>
+		<artifactId>dubboApp.base-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>dubboApp.service-defn-bizA</artifactId>
+	
+	<name>dubboApp.service-defn-bizA</name>
+	<description>dubboApp.service-defn-bizA</description>
+	
+	
+</project>
