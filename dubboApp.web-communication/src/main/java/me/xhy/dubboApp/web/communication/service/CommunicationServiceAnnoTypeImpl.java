@@ -12,12 +12,13 @@ import me.xhy.dubboApp.service.defn.bizA.annoTypeProvider.BizAAnnoTypeProvider;
 @Component
 public class CommunicationServiceAnnoTypeImpl implements CommunicationService {
 
+	// FIXME 一直是空指针
 	@Reference
 	private BizAAnnoTypeProvider annoProvider;
 
 	@Override
 	public List<BizAModel> query(BizAModel model) {
-
+		
 		return annoProvider.provideAnnoType(model);
 		
 	}
