@@ -1,11 +1,11 @@
-package me.xhy.dubboApp.service.defn.bizA.model;
+package me.xhy.dubboApp.service.defn.bizA;
 
 import java.io.Serializable;
 
-public class BizA implements Serializable {
+public class BizAModel implements Serializable {
 	
 	/**
-	 * 
+	 * serialVersionUID
 	 */
 	private static final long serialVersionUID = 6673634524658039230L;
 

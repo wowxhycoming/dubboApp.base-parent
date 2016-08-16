@@ -25,17 +25,17 @@
 	
 	<dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" timeout="${dubbo.registry.timeout}" />
 	
-	<!-- <dubbo:annotation package="me.xhy" />
+	<dubbo:reference id="xmlProvider" interface="me.xhy.dubboApp.service.defn.bizA.xmlTypeProvider.BizAXMLTypeProvider" />
+	
+	<bean id="communicationServiceXMLTypeImpl" class="me.xhy.dubboApp.web.communication.service.CommunicationServiceXMLTypeImpl">
+		<property name="xmlProvider" ref="xmlProvider" />
+	</bean>
+	
+	<dubbo:annotation package="me.xhy" />
 	
 	<context:component-scan base-package="me.xhy" >
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
-	</context:component-scan> -->
-	
-	<dubbo:reference id="bizAService_" interface="me.xhy.dubboApp.service.defn.bizA.BizAService" />
-	
-	<bean id="communicationServiceImpl" class="me.xhy.dubboApp.web.communication.service.CommunicationServiceImpl">
-		<property name="bizAService" ref="bizAService_" />
-	</bean>
+	</context:component-scan>
 	
 	
 	

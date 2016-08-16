@@ -27,6 +27,10 @@
 	
 	<!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
+    
+    <bean id="bizAXMLTypeProviderImpl" class="me.xhy.dubboApp.service.impl.bizA.xmlTypeProvider.BizAXMLTypeProviderImpl" />
+    
+    <dubbo:service interface="me.xhy.dubboApp.service.defn.bizA.xmlTypeProvider.BizAXMLTypeProvider" ref="bizAXMLTypeProviderImpl" />
 	
 	<dubbo:annotation package="me.xhy" />
 	

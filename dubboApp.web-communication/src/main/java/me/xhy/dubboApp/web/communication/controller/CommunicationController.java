@@ -3,7 +3,7 @@ package me.xhy.dubboApp.web.communication.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,43 +11,57 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import me.xhy.dubboApp.service.defn.bizA.model.BizA;
-import me.xhy.dubboApp.web.communication.service.CommunicationServiceImpl;
+import me.xhy.dubboApp.service.defn.bizA.BizAModel;
+import me.xhy.dubboApp.web.communication.service.CommunicationService;
 
 @Controller
-@Component
 @RequestMapping("/test")
 public class CommunicationController {
 	
-	private BizA bizA;
+	private BizAModel bizA;
 	
 	@Autowired
-	private CommunicationServiceImpl communicationService;
+	@Qualifier("communicationServiceXMLTypeImpl")
+	private CommunicationService communicationServiceXMLType;
+	
+	@Autowired
+	@Qualifier("communicationServiceAnnoTypeImpl")
+	private CommunicationService communicationServiceAnnoType;
+	
+	
 
-	@RequestMapping(value="/{a}.{b}", method=RequestMethod.GET)
+	@RequestMapping(value="/xml/{a}.{b}", method=RequestMethod.GET)
 	@ResponseBody
-	public String receive(@PathVariable String a, @PathVariable String b, Model model) {
+	public String receiveXMLTypeProvide(@PathVariable String a, @PathVariable String b, Model model) {
 		
 		System.out.println("a = " + a);
 		System.out.println("b = " + b);
 		
-		bizA = new BizA();
+		bizA = new BizAModel();
 		bizA.setA(a);
 		bizA.setB(b);
 		
-		List<BizA> res = communicationService.query(bizA);
+		List<BizAModel> res = communicationServiceXMLType.query(bizA);
+		
+		return res.toString();
+	}
+	
+	@RequestMapping(value="/anno/{a}.{b}", method=RequestMethod.GET)
+	@ResponseBody
+	public String receiveAnnoTypeProvide(@PathVariable String a, @PathVariable String b, Model model) {
+		
+		System.out.println("a = " + a);
+		System.out.println("b = " + b);
+		
+		bizA = new BizAModel();
+		bizA.setA(a);
+		bizA.setB(b);
+		
+		List<BizAModel> res = communicationServiceAnnoType.query(bizA);
 		
 		return res.toString();
 	}
 
-	// properties
-	public CommunicationServiceImpl getCommunicationService() {
-		return communicationService;
-	}
-
-	public void setCommunicationService(CommunicationServiceImpl communicationService) {
-		this.communicationService = communicationService;
-	}
 
 
 	
