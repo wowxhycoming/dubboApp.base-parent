@@ -7,7 +7,6 @@ import com.alibaba.dubbo.config.annotation.Service;
 
 import me.xhy.dubboApp.service.defn.bizA.BizAModel;
 import me.xhy.dubboApp.service.defn.bizA.annoTypeProvider.BizAAnnoTypeProvider;
-import me.xhy.dubboApp.service.defn.bizA.xmlTypeProvider.BizAXMLTypeProvider;
 
 /**
  * 
