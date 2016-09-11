@@ -23,10 +23,14 @@
 	
 	<context:property-placeholder location="classpath:/zookeeper.properties" />
 	
+	<!-- 同一套注册中心的各个节点使用','分隔；多套注册中间用'|'分隔 -->
 	<dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" timeout="${dubbo.registry.timeout}" />
 	
 	<!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
+    
+    <!-- 默认线程配置 ， 也可在 <dubbo:provider /> 标签下进行配置-->
+    <!-- <dubbo:protocol dispatcher="all" threadpool="fixed" threads="100" /> -->
     
     <bean id="bizAXMLTypeProviderImpl" class="me.xhy.dubboApp.service.impl.bizA.xmlTypeProvider.BizAXMLTypeProviderImpl" />
     
